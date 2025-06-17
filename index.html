@@ -12,7 +12,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="Portfolio of Muhammad Hassan">
   <meta property="og:description" content="Welcome to my portfolio. Automatically selects your language.">
-  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/home.jpeg">
+  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
   <meta property="og:url" content="https://moportfolio.github.io/M/">
   <meta property="og:type" content="website">
 
@@ -22,25 +22,27 @@
   <meta name="twitter:description" content="Welcome to my portfolio.">
   <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
 
-  <!-- JavaScript Redirect -->
-  <script>
-    const lang = navigator.language || navigator.userLanguage || 'en';
-    let target = 'en/';
-    if (lang.startsWith('de')) target = 'de/';
-    else if (lang.startsWith('ar')) target = 'ar/';
-    window.location.replace(target);
-  </script>
-
-  <!-- Optional: prevent flash of white (optional) -->
+  <!-- Minimal CSS to hide body -->
   <style>
     html, body {
       margin: 0;
-      height: 100%;
-      background: #000; /* optional: dark background to avoid flash */
+      padding: 0;
+      background: #000;
+      color: #000;
     }
   </style>
+
+  <!-- Delay redirect so bots can read OG tags -->
+  <script>
+    setTimeout(() => {
+      const lang = navigator.language || navigator.userLanguage || 'en';
+      let target = 'en/';
+      if (lang.startsWith('de')) target = 'de/';
+      else if (lang.startsWith('ar')) target = 'ar/';
+      window.location.replace(target);
+    }, 500); // delay 500ms to allow bots to read OG tags
+  </script>
 </head>
 <body>
-  <!-- Empty body to prevent visual flash -->
 </body>
 </html>
