@@ -12,7 +12,7 @@
   <!-- Open Graph Meta Tags for Link Preview -->
   <meta property="og:title" content="Portfolio of Muhammad Hassan">
   <meta property="og:description" content="Welcome to my portfolio. Automatically selects your language.">
-  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/home.jpeg">
+  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
   <meta property="og:url" content="https://moportfolio.github.io/M/">
   <meta property="og:type" content="website">
 
@@ -22,13 +22,10 @@
   <meta name="twitter:description" content="Welcome to my portfolio.">
   <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
 
-  <!-- Optional Facebook warning removal (not required) -->
+  <!-- Optional Facebook warning removal -->
   <meta property="fb:app_id" content="1234567890">
 
-  <!-- Hide page instantly -->
-  <style>html, body { display: none; }</style>
-
-  <!-- JS redirect after 200ms to let bots read meta -->
+  <!-- JS redirect -->
   <script>
     const lang = navigator.language || navigator.userLanguage;
     let target = 'en/';
@@ -36,8 +33,15 @@
     else if (lang.startsWith('ar')) target = 'ar/';
     setTimeout(() => {
       window.location.href = target;
-    }, 200); // just enough time for bots
+    }, 200);
   </script>
+
+  <!-- Fallback for bots with no JS -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; URL=en/" />
+  </noscript>
 </head>
-<body></body>
+<body>
+  <h1>Redirecting to your language...</h1>
+</body>
 </html>
