@@ -2,14 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
+  <title>Muhammad Hassan Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Redirect Script -->
+  <!-- Favicon and Logo -->
+  <link rel="icon" href="assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Open Graph for social sharing (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Muhammad Hassan - Portfolio">
+  <meta property="og:description" content="Welcome to my multilingual portfolio.">
+  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
+  <meta property="og:url" content="https://moportfolio.github.io/M/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muhammad Hassan - Portfolio">
+  <meta name="twitter:description" content="Welcome to my multilingual portfolio.">
+  <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
+
+  <!-- Redirect based on browser language -->
   <script>
     (function() {
       const lang = navigator.language || navigator.userLanguage;
-      let target = 'en/'; // default
+      let target = 'en/'; // default fallback
 
       if (lang.startsWith('de')) {
         target = 'de/';
@@ -17,44 +34,11 @@
         target = 'ar/';
       }
 
-      // Redirect after a short delay
-      setTimeout(() => {
-        window.location.href = target;
-      }, 2000); // 2 seconds delay to show logo/profile
+      window.location.replace(target);
     })();
   </script>
-
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 40px;
-      background-color: #f9f9f9;
-    }
-
-    .logo, .profile {
-      width: 100px;
-      height: auto;
-      margin: 20px auto;
-      display: block;
-    }
-
-    .message {
-      font-size: 18px;
-      color: #444;
-    }
-  </style>
 </head>
 <body>
-
-  <!-- Logo -->
-  <img src="assets/img/apple-touch-icon.png" alt="Logo" class="logo">
-
-  <!-- Profile Image -->
-  <img src="assets/img/profile-img.jpeg" alt="Profile Picture" class="profile">
-
-  <!-- Message -->
-  <p class="message">Redirecting based on your browser language...</p>
-
+  <!-- Nothing shown to user -->
 </body>
 </html>
