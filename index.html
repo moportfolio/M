@@ -12,7 +12,7 @@
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Portfolio of Muhammad Hassan">
   <meta property="og:description" content="Welcome to my portfolio. Automatically selects your language.">
-  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/home.jpeg">
+  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
   <meta property="og:url" content="https://moportfolio.github.io/M/">
   <meta property="og:type" content="website">
 
@@ -22,16 +22,19 @@
   <meta name="twitter:description" content="Welcome to my portfolio.">
   <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
 
-  <!-- Silent Style -->
   <style>
-    html, body { margin: 0; padding: 0; background: #fff; height: 100%; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      height: 100%;
+    }
   </style>
 
-  <!-- Bot detection & redirect -->
   <script>
-    // Don’t redirect bots
-    const userAgent = navigator.userAgent.toLowerCase();
-    const isBot = /(bot|crawl|spider|facebook|whatsapp|discord|telegram|linkedin|slack|preview)/.test(userAgent);
+    // Detect bots (Facebook, Telegram, etc.)
+    const ua = navigator.userAgent.toLowerCase();
+    const isBot = /bot|facebook|whatsapp|slack|discord|telegram|twitter|preview|crawler|spider/.test(ua);
 
     if (!isBot) {
       const lang = navigator.language || navigator.userLanguage || 'en';
@@ -42,5 +45,10 @@
     }
   </script>
 </head>
-<body></body>
+<body>
+  <!-- Visible only to bots -->
+  <noscript>
+    <p>This page requires JavaScript to redirect.</p>
+  </noscript>
+</body>
 </html>
