@@ -4,31 +4,57 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script>
-        (function() {
-          const lang = navigator.language || navigator.userLanguage;
-          let target = 'en/'; // default fallback
 
-          if (lang.startsWith('de')) {
-            target = 'de/';
-          } else if (lang.startsWith('ar')) {
-            target = 'ar/';
-          }
+  <!-- Redirect Script -->
+  <script>
+    (function() {
+      const lang = navigator.language || navigator.userLanguage;
+      let target = 'en/'; // default
 
-          // Redirect relative to current folder
-          window.location.href = target;
-        })();
-      </script>
+      if (lang.startsWith('de')) {
+        target = 'de/';
+      } else if (lang.startsWith('ar')) {
+        target = 'ar/';
+      }
+
+      // Redirect after a short delay
+      setTimeout(() => {
+        window.location.href = target;
+      }, 2000); // 2 seconds delay to show logo/profile
+    })();
+  </script>
 
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+
+    .logo, .profile {
+      width: 100px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+    }
+
+    .message {
+      font-size: 18px;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <p>Redirecting based on your browser language...</p>
+
+  <!-- Logo -->
+  <img src="assets/img/apple-touch-icon.png" alt="Logo" class="logo">
+
+  <!-- Profile Image -->
+  <img src="assets/img/profile-img.jpeg" alt="Profile Picture" class="profile">
+
+  <!-- Message -->
+  <p class="message">Redirecting based on your browser language...</p>
+
 </body>
 </html>
