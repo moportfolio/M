@@ -22,20 +22,23 @@
   <meta name="twitter:description" content="Welcome to my portfolio.">
   <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
 
-  <!-- Minimal style -->
+  <!-- Silent Style -->
   <style>
-    html, body { margin: 0; padding: 0; background: #fff; }
+    html, body { margin: 0; padding: 0; background: #fff; height: 100%; }
   </style>
 
-  <!-- JavaScript to redirect real users only -->
+  <!-- Bot detection & redirect -->
   <script>
-    const isBot = /bot|facebook|whatsapp|telegram|slack|crawler|spider|discord|linkedin/i.test(navigator.userAgent);
+    // Don’t redirect bots
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isBot = /(bot|crawl|spider|facebook|whatsapp|discord|telegram|linkedin|slack|preview)/.test(userAgent);
+
     if (!isBot) {
-      const lang = navigator.language || navigator.userLanguage;
+      const lang = navigator.language || navigator.userLanguage || 'en';
       let target = 'en/';
       if (lang.startsWith('de')) target = 'de/';
       else if (lang.startsWith('ar')) target = 'ar/';
-      window.location.replace(target); // Instant redirect
+      window.location.replace(target);
     }
   </script>
 </head>
