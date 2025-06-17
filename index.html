@@ -2,30 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio of Muhammad Hassan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Portfolio of Muhammad Hassan">
-  <meta property="og:description" content="Welcome to my portfolio. Automatically selects your language.">
-  <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
-  <meta property="og:url" content="https://moportfolio.github.io/M/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portfolio of Muhammad Hassan">
-  <meta name="twitter:description" content="Welcome to my portfolio.">
-  <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
-
-  <!-- Fallback content for bots without JS -->
-  <noscript>
-    <meta http-equiv="refresh" content="5; url=en/">
-  </noscript>
-
-  <!-- Real user redirect -->
   <script>
-    const lang = navigator.language || navigator.userLanguage;
+    const lang = navigator.language || navigator.userLanguage || 'en';
     let target = 'en/';
     if (lang.startsWith('de')) target = 'de/';
     else if (lang.startsWith('ar')) target = 'ar/';
