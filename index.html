@@ -5,41 +5,60 @@
   <title>Index - Portfolio Muhammad Hassan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Redirect (Fallback to English, JS will override if needed) -->
-  <meta http-equiv="refresh" content="0; URL=en/">
-
   <!-- Favicon / Logo -->
-  <link rel="icon" href="assets/img/apple-touch-icon.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" href="https://moportfolio.github.io/M/assets/img/apple-touch-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://moportfolio.github.io/M/assets/img/apple-touch-icon.png">
 
-  <!-- Open Graph for Messenger, Facebook -->
+  <!-- Open Graph Meta Tags (for Messenger, Facebook, etc.) -->
   <meta property="og:title" content="Index - Portfolio Muhammad Hassan">
-  <meta property="og:description" content="Welcome to my multilingual portfolio site.">
+  <meta property="og:description" content="Welcome to my multilingual portfolio. Choose your language.">
   <meta property="og:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
   <meta property="og:url" content="https://moportfolio.github.io/M/">
   <meta property="og:type" content="website">
 
-  <!-- Twitter preview (optional) -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Index - Portfolio Muhammad Hassan">
-  <meta name="twitter:description" content="Welcome to my multilingual portfolio site.">
+  <meta name="twitter:description" content="Welcome to my multilingual portfolio. Choose your language.">
   <meta name="twitter:image" content="https://moportfolio.github.io/M/assets/img/profile-img.jpeg">
 
-  <!-- Optional JS redirect for better language detection -->
+  <!-- Inline style -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 60px;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <!-- Inline JavaScript for redirect -->
   <script>
-    (function() {
+    (function () {
       const lang = navigator.language || navigator.userLanguage;
       let target = 'en/';
-      if (lang.startsWith('de')) {
-        target = 'de/';
-      } else if (lang.startsWith('ar')) {
-        target = 'ar/';
-      }
-      window.location.replace(target);
+      if (lang.startsWith('de')) target = 'de/';
+      else if (lang.startsWith('ar')) target = 'ar/';
+      
+      // Delay for social bots (1.5 sec)
+      setTimeout(() => {
+        window.location.href = target;
+      }, 1500);
     })();
   </script>
 </head>
 <body>
-  <!-- Nothing displayed -->
+  <img class="logo" src="https://moportfolio.github.io/M/assets/img/apple-touch-icon.png" alt="Logo">
+  <h1>Redirecting based on your browser language...</h1>
+  <p>If not redirected, <a href="en/">click here</a>.</p>
 </body>
 </html>
