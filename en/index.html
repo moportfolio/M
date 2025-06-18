@@ -100,7 +100,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hero Section with Logo and Typed.js</title>
+  <title>Typed Text with Logo</title>
 
   <!-- Typed.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -114,20 +114,18 @@
       box-sizing: border-box;
       font-family: Arial, sans-serif;
       background-color: #111;
-      color: #fff;
+      color: white;
     }
 
     section#hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 60px 20px;
       text-align: center;
       position: relative;
     }
 
     .logo-container {
+      display: flex;
+      justify-content: center;
       margin-bottom: 30px;
     }
 
@@ -140,6 +138,15 @@
     h1, p {
       margin: 10px 0;
       font-size: 28px;
+    }
+
+    .header-toggle {
+      position: absolute;
+      left: 15px;
+      top: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 999;
     }
 
     /* Language Switch Icon */
@@ -185,17 +192,62 @@
       font-weight: bold;
       color: white;
     }
-
-    .header-toggle {
-      position: absolute;
-      left: 15px;
-      top: 15px;
-      font-size: 24px;
-      cursor: pointer;
-      z-index: 999;
-    }
   </style>
 </head>
+
+<body>
+
+  <section id="hero">
+    <!-- Logo Image -->
+    <div class="logo-container">
+      <img src="logo.jpeg" alt="Logo" class="hero-logo">
+    </div>
+
+    <!-- Typed Text -->
+    <h1><span id="typed-1"></span></h1>
+    <p><span id="typed-2"></span></p>
+
+    <!-- Language Switcher Example -->
+    <div class="hero-lang-switcher">
+      <a href="#" class="lang-icon">
+        <img src="https://flagcdn.com/w40/us.png" alt="English">
+        <span class="lang-text">EN</span>
+      </a>
+      <a href="#" class="lang-icon">
+        <img src="https://flagcdn.com/w40/de.png" alt="Deutsch">
+        <span class="lang-text">DE</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Typed.js Initialization -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // First typed instance
+      new Typed('#typed-1', {
+        strings: ["Designer", "Developer", "Programmer", "Photographer"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+        showCursor: true,
+        cursorChar: "|"
+      });
+
+      // Second typed instance
+      new Typed('#typed-2', {
+        strings: ["Web Design", "Software Development", "App Development", "Graphic Design", "Logo Design"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2500,
+        loop: true,
+        showCursor: true,
+        cursorChar: "|"
+      });
+    });
+  </script>
+</body>
+</html>
 
 <body>
   <!-- Hero Section -->
