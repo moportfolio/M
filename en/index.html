@@ -89,18 +89,18 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
   <!-- Logo Image -->
-  <div class="hero-logo-container mb-4">
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+  
+  <!-- Logo image -->
+  <div class="hero-logo-wrapper">
     <img src="assets/img/logo.jpeg" alt="Logo" class="hero-logo">
   </div>
 
   <h2>Muhammad Hassan</h2>
+  <p><span id="typed-1"></span></p>
+  <p><span id="typed-2"></span></p>
+</div>
 
-          <!-- First Typed Line (with blinking cursor) -->
-          <p>I'm <span id="typed-1"></span></p>
-
-          <!-- Second Typed Line (also with blinking cursor) -->
-          <p class="mt-3">Skilled in <span id="typed-2"></span></p>
-        </div>
 </section><!-- /Hero Section -->
 
       <!-- Typed.js CDN -->
@@ -159,6 +159,19 @@ html, body {
   width: 200px;
   height: 200px;
   object-fit: contain;
+}
+.hero-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.hero-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  max-width: 100%;
 }
 
         /* Language Switch Icon */
