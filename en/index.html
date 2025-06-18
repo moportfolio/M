@@ -87,7 +87,13 @@
         <img src="assets/img/home.jpeg" alt="" data-aos="fade-in" class="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <h2>Muhammad Hassan</h2>
+
+  <!-- Logo Image -->
+  <div class="hero-logo-container mb-4">
+    <img src="assets/img/logo.jpeg" alt="Logo" class="hero-logo">
+  </div>
+
+  <h2>Muhammad Hassan</h2>
 
           <!-- First Typed Line (with blinking cursor) -->
           <p>I'm <span id="typed-1"></span></p>
@@ -143,6 +149,16 @@ html, body {
   font-size: 24px;
   cursor: pointer;
   z-index: 999;
+}
+.hero-logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-logo {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
 
         /* Language Switch Icon */
