@@ -9,7 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/apple-touch-icon.png" rel="icon">
+  <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
@@ -40,7 +40,7 @@
 
     <a href="index.html" class="logo d-flex align-items-center justify-content-center">
       <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/apple-touch-icon.png" alt=""> -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
       <h1 class="sitename">Muhammad Hassan</h1>
     </a>
 
@@ -65,19 +65,22 @@
     </nav>
 
   </header>
-<div class="hero-lang-switcher">
-            <a href="/M/de/" class="lang-icon" title="Wechseln Sie zu Deutsch">
-          <img src="https://www.flagpedia.net/data/flags/h80/de.png" alt="Deutsch">
-          <span class="lang-text">Deutsch</span>
-        </a>
+  <div class="hero-lang-switcher">
+    <!-- Language Switches -->
+    <a href="/de/" class="lang-icon" title="Wechseln Sie zu Deutsch">
+      <img src="https://www.flagpedia.net/data/flags/h80/de.png" alt="Deutsch">
+      <span class="lang-text">Deutsch</span>
+    </a>
 
-            <!-- Arabic -->
-            <a href="/M/ar/" class="lang-icon" title="التبديل إلى العربية">
-              <img src="https://www.flagpedia.net/data/flags/h80/eg.png" alt="Arabic">
-              <span class="lang-text">الــعــربيــة</span>
-            </a>
+    <a href="/ar/" class="lang-icon" title="التبديل إلى العربية">
+      <img src="https://www.flagpedia.net/data/flags/h80/eg.png" alt="Arabic">
+      <span class="lang-text">الــعــربيــة</span>
+    </a>
 
-          </div>
+    <!-- Logo Image Below Language Icons -->
+    <img src="assets/img/logo.jpeg" alt="Logo" class="lang-logo">
+  </div>
+
   <main class="main">
 
       <!-- Hero Section -->
@@ -87,11 +90,16 @@
         <img src="assets/img/home.jpeg" alt="" data-aos="fade-in" class="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <h2>Muhammad Hassan</h2>
 
-<div class="container" data-aos="fade-up" data-aos-delay="100">
-  <h2>Muhammad Hassan</h2>
+          <!-- First Typed Line (with blinking cursor) -->
+          <p>I'm <span id="typed-1"></span></p>
 
-</section><!-- /Hero Section -->
+          <!-- Second Typed Line (also with blinking cursor) -->
+          <p class="mt-3">Skilled in <span id="typed-2"></span></p>
+        </div>
+
+      </section><!-- /Hero Section -->
 
       <!-- Typed.js CDN -->
       <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -133,33 +141,25 @@ html, body {
   box-sizing: border-box;
 }
 .header-toggle {
-position: absolute;
-  
+  position: absolute;
   left: 15px;
   top: 15px;
   font-size: 24px;
   cursor: pointer;
   z-index: 999;
 }
-
-
-.hero-logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.hero-logo {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  max-width: 100%;
-}
+          .lang-logo {
+            width: 100px;
+            height: 100px;
+            margin-top: 10px;
+            align-self: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+          }
 
         /* Language Switch Icon */
         .hero-lang-switcher {
-        position: absolute;
+          position: absolute;
           top: 20px;
           right: 20px;
           z-index: 1000;
@@ -221,7 +221,6 @@ position: absolute;
       z-index: 1000;
       text-decoration: none;
     }
-
 
     .whatsapp-bubble {
       background-color: #25d366;
