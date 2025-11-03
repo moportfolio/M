@@ -654,82 +654,47 @@ html, body {
         <!-- Contact Form -->
 <div class="col-lg-7">
   <div class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-    <form id="contact-form" action="https://formspree.io/f/xdkgvodv" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/xdkgvodv" method="POST" novalidate>
       <div class="row gy-4">
 
         <!-- Name -->
         <div class="col-md-6">
           <label for="name-field" class="form-label">Your Name</label>
-          <input 
-            type="text" 
-            name="name" 
-            id="name-field" 
-            class="form-control" 
-            required 
-            oninvalid="this.setCustomValidity('Please enter your name')" 
-            oninput="this.setCustomValidity('')"
-          />
+          <input type="text" name="name" id="name-field" class="form-control" required />
+          <div class="text-danger mt-1 error-message" id="name-error"></div>
         </div>
 
         <!-- Telephone -->
         <div class="col-md-6">
           <label for="telephone-field" class="form-label">Your Telephone Number</label>
-          <input 
-            type="tel" 
-            name="telephone" 
-            id="telephone-field" 
-            class="form-control" 
-            required 
-            oninvalid="this.setCustomValidity('Please enter your telephone number')" 
-            oninput="this.setCustomValidity('')"
-          />
+          <input type="tel" name="telephone" id="telephone-field" class="form-control" required />
+          <div class="text-danger mt-1 error-message" id="telephone-error"></div>
         </div>
 
         <!-- Email -->
         <div class="col-md-6">
           <label for="email-field" class="form-label">Your Email</label>
-          <input 
-            type="email" 
-            class="form-control" 
-            name="email" 
-            id="email-field" 
-            required 
-            oninvalid="this.setCustomValidity('Please enter a valid email address')" 
-            oninput="this.setCustomValidity('')"
-          />
+          <input type="email" name="email" id="email-field" class="form-control" required />
+          <div class="text-danger mt-1 error-message" id="email-error"></div>
         </div>
 
         <!-- Subject -->
         <div class="col-12">
           <label for="subject-field" class="form-label">Subject</label>
-          <input 
-            type="text" 
-            class="form-control" 
-            name="subject" 
-            id="subject-field" 
-            required 
-            oninvalid="this.setCustomValidity('Please enter a subject')" 
-            oninput="this.setCustomValidity('')"
-          />
+          <input type="text" name="subject" id="subject-field" class="form-control" required />
+          <div class="text-danger mt-1 error-message" id="subject-error"></div>
         </div>
 
         <!-- Message -->
         <div class="col-12">
           <label for="message-field" class="form-label">Message</label>
-          <textarea 
-            class="form-control" 
-            name="message" 
-            rows="6" 
-            id="message-field" 
-            required 
-            oninvalid="this.setCustomValidity('Please enter your message')" 
-            oninput="this.setCustomValidity('')"
-          ></textarea>
+          <textarea name="message" id="message-field" class="form-control" rows="6" required></textarea>
+          <div class="text-danger mt-1 error-message" id="message-error"></div>
         </div>
 
         <input type="hidden" name="_captcha" value="false" />
 
-        <!-- Submit Button -->
+        <!-- Submit -->
         <div class="col-12 text-center">
           <button type="submit" class="btn btn-primary px-5">Send Message</button>
         </div>
@@ -743,22 +708,47 @@ html, body {
       <a href="#" class="text-primary" onclick="resetForm(event)">← Send another message</a>
     </div>
   </div>
-</div> 
-      </section>
+</div>
+</section>
 <script>
   const form = document.getElementById('contact-form');
   const thankYou = document.getElementById('thank-you-message');
 
+  const fields = [
+    { id: 'name-field', errorId: 'name-error', message: 'Please enter your name.' },
+    { id: 'telephone-field', errorId: 'telephone-error', message: 'Please enter your telephone number.' },
+    { id: 'email-field', errorId: 'email-error', message: 'Please enter a valid email address.' },
+    { id: 'subject-field', errorId: 'subject-error', message: 'Please enter a subject.' },
+    { id: 'message-field', errorId: 'message-error', message: 'Please enter your message.' }
+  ];
+
   form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // prevent default first
+    e.preventDefault();
+    let valid = true;
 
-    // Check validity before sending
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return; // stop if invalid
-    }
+    // Clear old error messages
+    fields.forEach(f => {
+      document.getElementById(f.errorId).textContent = '';
+      document.getElementById(f.id).classList.remove('is-invalid');
+    });
 
-    // If valid, submit to Formspree
+    // Check each field
+    fields.forEach(f => {
+      const input = document.getElementById(f.id);
+      if (!input.value.trim()) {
+        valid = false;
+        document.getElementById(f.errorId).textContent = f.message;
+        input.classList.add('is-invalid');
+      } else if (f.id === 'email-field' && !/\S+@\S+\.\S+/.test(input.value)) {
+        valid = false;
+        document.getElementById(f.errorId).textContent = 'Please enter a valid email address.';
+        input.classList.add('is-invalid');
+      }
+    });
+
+    if (!valid) return; // stop if there are errors
+
+    // If all valid, send to Formspree
     const formData = new FormData(form);
     try {
       const response = await fetch(form.action, {
@@ -772,7 +762,7 @@ html, body {
         form.style.display = 'none';
         thankYou.style.display = 'block';
       } else {
-        alert('There was an issue sending your message. Please try again.');
+        alert('There was a problem sending your message. Please try again.');
       }
     } catch (error) {
       alert('An error occurred. Please check your internet connection.');
@@ -785,7 +775,6 @@ html, body {
     form.style.display = 'block';
   }
 </script>
-
 
 
   <!-- Bootstrap JS Bundle -->
