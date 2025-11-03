@@ -652,43 +652,90 @@ html, body {
         </div>
 
         <!-- Contact Form -->
-        <div class="col-lg-7">
-          <div class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-            <form id="contact-form" action="https://formspree.io/f/xdkgvodv" method="POST" novalidate>
-              <div class="row gy-4">
+<div class="col-lg-7">
+  <div class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+    <form id="contact-form" action="https://formspree.io/f/xdkgvodv" method="POST" novalidate>
+      <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <label for="name-field" class="form-label">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required />
-                </div>
-                <div class="col-md-6">
-                  <label for="telephone-field" class="form-label">Your telephone number</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required />
-                </div>
+        <!-- Name -->
+        <div class="col-md-6">
+          <label for="name-field" class="form-label">Your Name</label>
+          <input 
+            type="text" 
+            name="name" 
+            id="name-field" 
+            class="form-control" 
+            required 
+            oninvalid="this.setCustomValidity('Please enter your name')" 
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="form-label">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required />
-                </div>
+        <!-- Telephone -->
+        <div class="col-md-6">
+          <label for="telephone-field" class="form-label">Your Telephone Number</label>
+          <input 
+            type="tel" 
+            name="telephone" 
+            id="telephone-field" 
+            class="form-control" 
+            required 
+            oninvalid="this.setCustomValidity('Please enter your telephone number')" 
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
 
-                <div class="col-12">
-                  <label for="subject-field" class="form-label">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required />
-                </div>
+        <!-- Email -->
+        <div class="col-md-6">
+          <label for="email-field" class="form-label">Your Email</label>
+          <input 
+            type="email" 
+            class="form-control" 
+            name="email" 
+            id="email-field" 
+            required 
+            oninvalid="this.setCustomValidity('Please enter a valid email address')" 
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
 
-                <div class="col-12">
-                  <label for="message-field" class="form-label">Message</label>
-                  <textarea class="form-control" name="message" rows="6" id="message-field" required></textarea>
-                </div>
+        <!-- Subject -->
+        <div class="col-12">
+          <label for="subject-field" class="form-label">Subject</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            name="subject" 
+            id="subject-field" 
+            required 
+            oninvalid="this.setCustomValidity('Please enter a subject')" 
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
 
-                <input type="hidden" name="_captcha" value="false" />
+        <!-- Message -->
+        <div class="col-12">
+          <label for="message-field" class="form-label">Message</label>
+          <textarea 
+            class="form-control" 
+            name="message" 
+            rows="6" 
+            id="message-field" 
+            required 
+            oninvalid="this.setCustomValidity('Please enter your message')" 
+            oninput="this.setCustomValidity('')"
+          ></textarea>
+        </div>
 
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn btn-primary px-5">Send Message</button>
-                </div>
+        <input type="hidden" name="_captcha" value="false" />
 
-              </div>
-            </form>
+        <!-- Submit Button -->
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary px-5">Send Message</button>
+        </div>
+
+      </div>
+    </form>
 
             <div id="thank-you-message" class="text-center mt-4">
               <h4 class="text-success">Thank you! Your message has been sent.</h4>
