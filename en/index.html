@@ -660,35 +660,35 @@ html, body {
         <!-- Name -->
         <div class="col-md-6">
           <label for="name-field" class="form-label">Your Name</label>
-          <input type="text" name="name" id="name-field" class="form-control" required />
+          <input type="text" name="name" id="name-field" class="form-control" />
           <div class="text-danger mt-1 error-message" id="name-error"></div>
         </div>
 
         <!-- Telephone -->
         <div class="col-md-6">
           <label for="telephone-field" class="form-label">Your Telephone Number</label>
-          <input type="tel" name="telephone" id="telephone-field" class="form-control" required />
+          <input type="tel" name="telephone" id="telephone-field" class="form-control" />
           <div class="text-danger mt-1 error-message" id="telephone-error"></div>
         </div>
 
         <!-- Email -->
         <div class="col-md-6">
           <label for="email-field" class="form-label">Your Email</label>
-          <input type="email" name="email" id="email-field" class="form-control" required />
+          <input type="email" name="email" id="email-field" class="form-control" />
           <div class="text-danger mt-1 error-message" id="email-error"></div>
         </div>
 
         <!-- Subject -->
         <div class="col-12">
           <label for="subject-field" class="form-label">Subject</label>
-          <input type="text" name="subject" id="subject-field" class="form-control" required />
+          <input type="text" name="subject" id="subject-field" class="form-control" />
           <div class="text-danger mt-1 error-message" id="subject-error"></div>
         </div>
 
         <!-- Message -->
         <div class="col-12">
           <label for="message-field" class="form-label">Message</label>
-          <textarea name="message" id="message-field" class="form-control" rows="6" required></textarea>
+          <textarea name="message" id="message-field" class="form-control" rows="6"></textarea>
           <div class="text-danger mt-1 error-message" id="message-error"></div>
         </div>
 
@@ -714,39 +714,45 @@ html, body {
   const form = document.getElementById('contact-form');
   const thankYou = document.getElementById('thank-you-message');
 
+  // Define field info and custom messages
   const fields = [
-    { id: 'name-field', errorId: 'name-error', message: 'Please enter your name.' },
-    { id: 'telephone-field', errorId: 'telephone-error', message: 'Please enter your telephone number.' },
-    { id: 'email-field', errorId: 'email-error', message: 'Please enter a valid email address.' },
-    { id: 'subject-field', errorId: 'subject-error', message: 'Please enter a subject.' },
-    { id: 'message-field', errorId: 'message-error', message: 'Please enter your message.' }
+    { id: 'name-field', errorId: 'name-error', message: 'Write your name' },
+    { id: 'telephone-field', errorId: 'telephone-error', message: 'Write your telephone number' },
+    { id: 'email-field', errorId: 'email-error', message: 'Write your email' },
+    { id: 'subject-field', errorId: 'subject-error', message: 'Write your subject' },
+    { id: 'message-field', errorId: 'message-error', message: 'Write your message' }
   ];
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     let valid = true;
 
-    // Clear old error messages
+    // Clear old messages
     fields.forEach(f => {
-      document.getElementById(f.errorId).textContent = '';
-      document.getElementById(f.id).classList.remove('is-invalid');
+      const field = document.getElementById(f.id);
+      const errorDiv = document.getElementById(f.errorId);
+      errorDiv.textContent = '';
+      field.classList.remove('is-invalid');
     });
 
-    // Check each field
+    // Check fields
     fields.forEach(f => {
-      const input = document.getElementById(f.id);
-      if (!input.value.trim()) {
+      const field = document.getElementById(f.id);
+      const errorDiv = document.getElementById(f.errorId);
+      const value = field.value.trim();
+
+      if (!value) {
+        errorDiv.textContent = f.message;
+        field.classList.add('is-invalid');
         valid = false;
-        document.getElementById(f.errorId).textContent = f.message;
-        input.classList.add('is-invalid');
-      } else if (f.id === 'email-field' && !/\S+@\S+\.\S+/.test(input.value)) {
+      } else if (f.id === 'email-field' && !/\S+@\S+\.\S+/.test(value)) {
+        errorDiv.textContent = 'Enter a valid email address';
+        field.classList.add('is-invalid');
         valid = false;
-        document.getElementById(f.errorId).textContent = 'Please enter a valid email address.';
-        input.classList.add('is-invalid');
       }
     });
 
-    if (!valid) return; // stop if there are errors
+    if (!valid) return; // stop sending if any errors exist
 
     // If all valid, send to Formspree
     const formData = new FormData(form);
@@ -775,6 +781,21 @@ html, body {
     form.style.display = 'block';
   }
 </script>
+
+<style>
+  /* Red highlight for invalid inputs */
+  .is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #fff6f6;
+  }
+
+  /* Red text for error messages */
+  .error-message {
+    font-size: 0.9rem;
+    color: #dc3545;
+  }
+</style>
+
 
 
   <!-- Bootstrap JS Bundle -->
