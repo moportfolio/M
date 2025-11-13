@@ -32,6 +32,13 @@
         .header-toggle {
           right: 30px !important;
         }
+          /* Small space between icon and text in RTL service items */
+          .service-item .icon {
+            margin-left: 20px;   /* small gap between icon and text */
+            font-size: 28px;     /* optional: ensure icons look balanced */
+            color: #007bff;      /* optional: match brand color */
+          }
+
       </style>
 
       <style>
@@ -535,7 +542,7 @@
         <div class="row">
           <div class="col-lg-6">
             <ul>
-              <li><i class="bi bi-person"></i> <strong>العمر:</strong> <span>49</span></li>
+              
               <li><i class="bi bi-globe"></i> <strong>الموقع الإلكتروني:</strong> <a href="https://muhammadhassan.eu" target="_blank">muhammadhassan.eu</a></li>
               <li><i class="bi bi-telephone"></i> <strong>الهاتف:</strong> <span>+491772718272</span></li>
               <li><i class="bi bi-mortarboard"></i> <strong>الدرجة العلمية:</strong> <span>ماجستير</span></li>
@@ -698,7 +705,29 @@
   }
   </style>
 
+  <style>
+   
 
+
+   html, body { overflow-x: hidden; margin-bottom: 0 !important; padding-bottom: 0 !important; }
+
+   
+      /* Kill default container or Bootstrap bottom spacing */
+
+      .section,
+      .section-title {
+        margin-bottom: 30px !important;   /* ✅ add px unit */
+        padding-bottom: 0px !important;
+        
+      }
+
+     
+
+    
+
+    
+  
+  </style>
 
   <!-- Services Section -->
   <section id="services" class="services section" dir="rtl">
